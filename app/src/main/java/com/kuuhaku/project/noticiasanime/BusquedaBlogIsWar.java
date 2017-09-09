@@ -12,10 +12,10 @@ public class BusquedaBlogIsWar {
     private Conexion c;
     private Busqueda b;
     private String[] codigo;
-    private String pagina = "http://www.blogiswar.net/";
+    private String pagina = "http://www.blogiswar.net";
     private String contenido = "class=\"views\"";
     private String detalles = "class=\"excerpt\"";
-    private String imagen = "attachment-gloria_320_218 size-gloria_320_218 wp-post-image";
+    private String imagen = "attachment-gloria";
 
     public BusquedaBlogIsWar(){
         c = new Conexion();
