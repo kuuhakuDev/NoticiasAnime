@@ -12,6 +12,7 @@ import android.util.TypedValue;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import static java.security.AccessController.getContext;
@@ -24,6 +25,7 @@ public class MainPagina1Contenido extends AppCompatActivity {
 
     TextView tvTituloNoticia;
     ImageView ivImageNoticia;
+    ProgressBar pbBarraCarga;
     Conexion c;
     LinearLayout layout;
     MainPagina1Contenido activity;
@@ -39,6 +41,7 @@ public class MainPagina1Contenido extends AppCompatActivity {
         c = new Conexion();
         tvTituloNoticia = (TextView) findViewById(R.id.web);
         ivImageNoticia = (ImageView) findViewById(R.id.imagenContenido);
+        pbBarraCarga = (ProgressBar) findViewById(R.id.progressBar2);
         layout = (LinearLayout) findViewById(R.id.linearLayoutContenido);
 
         activity = this;
@@ -54,6 +57,7 @@ public class MainPagina1Contenido extends AppCompatActivity {
         protected void onPreExecute() {
             super.onPreExecute();
             tvTituloNoticia.setVisibility(View.INVISIBLE);
+            pbBarraCarga.setVisibility(View.VISIBLE);
         }
 
         @Override
@@ -112,6 +116,7 @@ public class MainPagina1Contenido extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
+            pbBarraCarga.setVisibility(View.INVISIBLE);
             tvTituloNoticia.setVisibility(View.VISIBLE);
         }
 
