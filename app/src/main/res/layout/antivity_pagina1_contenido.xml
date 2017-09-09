@@ -29,7 +29,10 @@
                 android:layout_height="wrap_content"
                 android:scaleType="fitXY"
                 android:adjustViewBounds="true"
-                />
+                android:paddingTop="10dp"
+                android:paddingLeft="10dp"
+                android:paddingBottom="20dp"
+                android:paddingRight="10dp"/>
 
         </LinearLayout>
     </ScrollView>
