@@ -74,7 +74,8 @@ public class MainPagina1Contenido extends AppCompatActivity {
 
         @Override
         protected void onProgressUpdate(Object... values) {
-
+            boolean seguirTexto = true;
+            TextView texto = new TextView(activity);
             Object[][] objetos = (Object[][]) values[1];
 
             //Titulo del la Noticia
@@ -91,12 +92,16 @@ public class MainPagina1Contenido extends AppCompatActivity {
                     imagen.setPadding(dp(10),dp(10),dp(10),dp(10));
                     imagen.setImageDrawable((Drawable) objetos[i][0]);
                     layout.addView(imagen);
+                    seguirTexto = true;
                 }else if(((Integer)objetos[i][1]) == 0){
-                    TextView texto = new TextView(activity);
-                    texto.setTextSize(dp(15));
-                    texto.setPadding(0,0,0,0);
-                    texto.setText(Html.fromHtml((String)objetos[i][0]));
-                    layout.addView(texto);
+                    if(seguirTexto){
+                        texto = new TextView(activity);
+                        texto.setTextSize(dp(15));
+                        texto.setPadding(0,0,0,0);
+                        layout.addView(texto);
+                        seguirTexto = false;
+                    }
+                    texto.append(Html.fromHtml((String)objetos[i][0]));
                 }
             }
 
